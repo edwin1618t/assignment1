@@ -1,0 +1,16 @@
+Twitter Trending Topics Scraper
+This project is a web application that scrapes Twitter for trending topics and presents the data in a user-friendly format. The application uses Selenium for web scraping, Flask for backend functionality, and MongoDB for data storage.
+
+Features://
+Web Scraping: Fetches the latest trending topics from Twitter.
+Data Storage: Saves the scraped data to a MongoDB database for persistence and future reference.
+Dynamic Web Interface: A responsive web page built using HTML and CSS, displaying trends and related metadata.
+Reusability: Includes a button to re-run the scraper and refresh the displayed data.
+
+How It Works://
+Scraping: The scraper_script.py uses Selenium to navigate Twitter, extract trending topics, and format the data.
+Backend: The app.py Flask application handles user requests and fetches data from MongoDB.
+Frontend: The interface, built with HTML and CSS, displays the trending topics, query timestamp, and IP address used.
+
+edwin thomas 
+7034453618
