@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Trending Topics</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 12px;
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 200px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .topics-title {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .ip-address {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>X Trending Topics</h1>
+        <button id="runScriptBtn" onclick="fetchTrends()">Click here to run the script</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function fetchTrends() {
+            try {
+                const response = await fetch('/run_script');
+                const data = await response.json();
+
+                if (data.error) {
+                    document.getElementById('results').innerHTML = `<p>${data.error}</p>`;
+                    return;
+                }
+
+                const resultsDiv = document.getElementById('results');
+                const runScriptBtn = document.getElementById('runScriptBtn');
+
+               
+                runScriptBtn.textContent = 'Click here to run the query again';
+
+                resultsDiv.innerHTML = `
+                    <p class="topics-title">These are the most happening topics as on ${data.timestamp}:</p>
+                    <ul>
+                        <li>Trend 1: ${data.trend1}</li>
+                        <li>Trend 2: ${data.trend2}</li>
+                        <li>Trend 3: ${data.trend3}</li>
+                        <li>Trend 4: ${data.trend4}</li>
+                    </ul>
+                    <p class="ip-address">The IP address used for this query was ${data.ip_address}.</p>
+                    <p>Here's a JSON extract of this record from the MongoDB:</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.getElementById('results').innerHTML = `<p>An error occurred: ${error.message}</p>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+ 
+ 
