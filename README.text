@@ -1,16 +1,38 @@
 Twitter Trending Topics Scraper
-This project is a web application that scrapes Twitter for trending topics and presents the data in a user-friendly format. The application uses Selenium for web scraping, Flask for backend functionality, and MongoDB for data storage.
 
-Features://
-Web Scraping: Fetches the latest trending topics from Twitter.
-Data Storage: Saves the scraped data to a MongoDB database for persistence and future reference.
-Dynamic Web Interface: A responsive web page built using HTML and CSS, displaying trends and related metadata.
-Reusability: Includes a button to re-run the scraper and refresh the displayed data.
+Project Overview
+This is a web application that scrapes Twitter for trending topics and displays the data on a user-friendly web page. It uses Selenium for web scraping, Flask for handling the backend, and MongoDB for storing the scraped data.
 
-How It Works://
-Scraping: The scraper_script.py uses Selenium to navigate Twitter, extract trending topics, and format the data.
-Backend: The app.py Flask application handles user requests and fetches data from MongoDB.
-Frontend: The interface, built with HTML and CSS, displays the trending topics, query timestamp, and IP address used.
+Features
 
-edwin thomas 
-7034453618
+Web Scraping: The application fetches the latest trending topics from Twitter.
+Data Storage: The scraped data is saved to a MongoDB database for future reference.
+Dynamic Web Interface: The front-end displays the trends and other related metadata, such as the timestamp and IP address used for the query.
+Reusability: The interface allows users to re-run the scraper and refresh the displayed data.
+How It Works
+
+Scraping:
+
+The scraper script uses Selenium to open Twitter, extract trending topics, and format them for display.
+Backend:
+
+The Flask application handles user requests and retrieves the data from MongoDB. It serves the data to the front-end whenever the user requests it.
+Frontend:
+
+The web page is designed with HTML and CSS. It shows the trending topics, along with the timestamp and IP address of the user who made the request.
+A button on the page allows the user to re-run the scraper and update the displayed data.
+How to Run the Application
+
+Install the necessary dependencies like Flask, Selenium, and MongoDB on your local machine.
+Run the Flask application.
+Open your browser and go to http://127.0.0.1:5000/.
+On the webpage, click the "Get Trending Topics" button to see the latest trends.
+Technologies Used
+
+Selenium: Used for scraping Twitter.
+Flask: Used for creating the web application and handling requests.
+MongoDB: Used for storing the scraped data.
+HTML/CSS: Used for designing the front-end interface.
+Contact Information
+Developer: Edwin Thomas
+Phone: 7034453618 
